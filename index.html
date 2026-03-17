@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomWear</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                CustomWear
+            </a>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link active">Главная</a></li>
+                    <li><a href="#designer" class="nav__link">Конструктор</a></li>
+                    <li><a href="#products" class="nav__link">Товары</a></li>
+                    <li><a href="#about" class="nav__link">О нас</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <button class="nav__icon" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <div class="user-section">
+                    <button class="btn btn--outline" id="login-btn">Войти</button>
+                    <button class="btn btn--primary" id="register-btn">Регистрация</button>
+                    
+                    <div class="user-menu hidden">
+                        <div class="user-info" id="user-profile-btn">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&crop=face" alt="User" class="user-avatar">
+                            <span class="user-name">Пользователь</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Создай одежду
+                    <span class="gradient-text">своей мечты</span>
+                </h1>
+                <p class="hero__description">
+                    Уникальная одежда с твоим дизайном. Футболки, худи, штаны и многое другое 
+                    с индивидуальными принтами и надписями.
+                </p>
+                <div class="hero__actions">
+                    <button class="btn btn--primary btn--large" onclick="startDesigning()">
+                        <i class="fas fa-palette"></i>
+                        Начать дизайн
+                    </button>
+                    <button class="btn btn--outline btn--large" onclick="scrollToSection('#products')">
+                        <i class="fas fa-shopping-bag"></i>
+                        Смотреть каталог
+                    </button>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Кастомная одежда с индивидуальным дизайном">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Разная одежда</h3>
+                    <p>Футболки, худи, штаны, трусы и многое другое</p>
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Разная одежда" class="feature-img">
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Уникальный дизайн</h3>
+                    <p>Создавайте собственные принты и надписи</p>
+                    <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Дизайн одежды" class="feature-img">
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставка по всей России за 3-7 дней</p>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Доставка одежды" class="feature-img">
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Качество</h3>
+                    <p>Премиальные материалы и печать</p>
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Качество ткани" class="feature-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer Section -->
+    <section id="designer" class="designer">
+        <div class="container">
+            <h2 class="section-title">Конструктор одежды</h2>
+            <p class="section-subtitle">Создайте уникальный дизайн за несколько минут</p>
+            
+            <div class="designer__container">
+                <div class="designer__sidebar">
+                    <div class="design-step">
+                        <h4>1. Выберите тип одежды</h4>
+                        <div class="clothing-types">
+                            <div class="clothing-type active" data-type="tshirt">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=80&h=80&fit=crop" alt="Футболка" class="clothing-img">
+                                <span>Футболка</span>
+                                <span class="price">от 990 ₽</span>
+                            </div>
+                            <div class="clothing-type" data-type="hoodie">
+                                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=80&h=80&fit=crop" alt="Худи" class="clothing-img">
+                                <span>Худи</span>
+                                <span class="price">от 1990 ₽</span>
+                            </div>
+                            <div class="clothing-type" data-type="pants">
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=80&h=80&fit=crop" alt="Штаны" class="clothing-img">
+                                <span>Штаны</span>
+                                <span class="price">от 1490 ₽</span>
+                            </div>
+                            <div class="clothing-type" data-type="underwear">
+                                <img src="https://images.unsplash.com/photo-1586363104868-2b8d6f8f46cc?w=80&h=80&fit=crop" alt="Трусы" class="clothing-img">
+                                <span>Трусы</span>
+                                <span class="price">от 490 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-step">
+                        <h4>2. Выберите размер</h4>
+                        <div class="size-options">
+                            <label class="size-option">
+                                <input type="radio" name="size" value="S" checked>
+                                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w-60&h=60&fit=crop" alt="Размер S">
+                                <span>S</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="M">
+                                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=60&h=60&fit=crop" alt="Размер M">
+                                <span>M</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="L">
+                                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=60&h=60&fit=crop" alt="Размер L">
+                                <span>L</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="XL">
+                                <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=60&h=60&fit=crop" alt="Размер XL">
+                                <span>XL</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="design-step">
+                        <h4>3. Выберите цвет</h4>
+                        <div class="color-options">
+                            <div class="color-option active" style="background: #ffffff;" data-color="#ffffff">
+                                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=40&h=40&fit=crop" alt="Белый цвет">
+                            </div>
+                            <div class="color-option" style="background: #000000;" data-color="#000000">
+                                <img src="https://images.unsplash.com/photo-1523381140794-a1eef18a37c0?w=40&h=40&fit=crop" alt="Черный цвет">
+                            </div>
+                            <div class="color-option" style="background: #2F4F4F;" data-color="#2F4F4F">
+                                <img src="https://images.unsplash.com/photo-1582295122389-5ac2646f4a54?w=40&h=40&fit=crop" alt="Серый цвет">
+                            </div>
+                            <div class="color-option" style="background: #FF6B6B;" data-color="#FF6B6B">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=40&h=40&fit=crop" alt="Красный цвет">
+                            </div>
+                            <div class="color-option" style="background: #4ECDC4;" data-color="#4ECDC4">
+                                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=40&h=40&fit=crop" alt="Бирюзовый цвет">
+                            </div>
+                            <div class="color-option" style="background: #45B7D1;" data-color="#45B7D1">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=40&h=40&fit=crop" alt="Голубой цвет">
+                            </div>
+                        </div>
+                        <input type="color" id="customColor" class="color-picker" value="#ffffff">
+                    </div>
+
+                    <div class="design-step">
+                        <h4>4. Добавьте текст</h4>
+                        <input type="text" id="customText" placeholder="Введите ваш текст" class="text-input">
+                        <div class="text-controls">
+                            <input type="color" id="textColor" value="#000000" class="color-input">
+                            <select id="textFont" class="font-select">
+                                <option value="Arial">Arial</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+                        </div>
+                        <div class="text-examples">
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=200&h=100&fit=crop" alt="Пример текста на одежде">
+                            <p>Пример текста на одежде</p>
+                        </div>
+                    </div>
+
+                    <div class="design-step">
+                        <h4>5. Загрузите изображение</h4>
+                        <div class="upload-area" id="uploadArea">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w-80&h=80&fit=crop" alt="Иконка загрузки" class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Перетащите изображение или кликните для выбора</p>
+                            <input type="file" id="imageUpload" accept="image/*" hidden>
+                        </div>
+                        <div class="upload-examples">
+                            <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=100&h=100&fit=crop" alt="Пример принта 1">
+                            <img src="https://images.unsplash.com/photo-1588099768550-40121f4d5e75?w=100&h=100&fit=crop" alt="Пример принта 2">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=100&h=100&fit=crop" alt="Пример принта 3">
+                        </div>
+                    </div>
+
+                    <div class="design-price">
+                        <div class="price-item">
+                            <span>Базовая стоимость:</span>
+                            <span id="basePrice">990 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Кастомизация:</span>
+                            <span id="customPrice">0 ₽</span>
+                        </div>
+                        <div class="price-total">
+                            <span>Итого:</span>
+                            <span id="totalPrice">990 ₽</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn--primary btn--full" onclick="addToCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        Добавить в корзину
+                    </button>
+                </div>
+
+                <div class="designer__preview">
+                    <div class="preview-container">
+                        <canvas id="designCanvas" width="500" height="600"></canvas>
+                        <div class="preview-examples">
+                            <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=200&h=200&fit=crop" alt="Пример дизайна 1" class="preview-example">
+                            <img src="https://images.unsplash.com/photo-1596908905631-7fe2d220d0f4?w=200&h=200&fit=crop" alt="Пример дизайна 2" class="preview-example">
+                            <img src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=200&h=200&fit=crop" alt="Пример дизайна 3" class="preview-example">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Популярные товары</h2>
+            <p class="section-subtitle">Готовые решения или создайте свой дизайн</p>
+            
+            <div class="products__filter">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="tshirt">Футболки</button>
+                <button class="filter-btn" data-filter="hoodie">Худи</button>
+                <button class="filter-btn" data-filter="pants">Штаны</button>
+                <button class="filter-btn" data-filter="underwear">Трусы</button>
+            </div>
+
+            <div class="products__grid" id="productsGrid">
+                <!-- Products loaded by JavaScript -->
+                <!-- Пример товара футболки -->
+                <div class="product-card" data-category="tshirt">
+                    <div class="product-image">
+                        <img src="Футболка белая.jpg" alt="Белая футболка">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Классическая белая футболка</h3>
+                        <p class="product-description">100% хлопок, премиальное качество</p>
+                        <div class="product-price">990 ₽</div>
+                        <div class="product-actions">
+                            <button class="btn btn--primary" onclick="customizeProduct('tshirt')">
+                                <i class="fas fa-palette"></i> Кастомизировать
+                            </button>
+                            <button class="btn btn--outline" onclick="addToCartFromCatalog('tshirt1')">
+                                <i class="fas fa-shopping-cart"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Пример товара худи -->
+                <div class="product-card" data-category="hoodie">
+                    <div class="product-image">
+                        <img src="Худи с капюшоном.jpg" alt="Черное худи">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Черное худи с капюшоном</h3>
+                        <p class="product-description">Теплое, уютное, с карманом-кенгуру</p>
+                        <div class="product-price">1990 ₽</div>
+                        <div class="product-actions">
+                            <button class="btn btn--primary" onclick="customizeProduct('hoodie')">
+                                <i class="fas fa-palette"></i> Кастомизировать
+                            </button>
+                            <button class="btn btn--outline" onclick="addToCartFromCatalog('hoodie1')">
+                                <i class="fas fa-shopping-cart"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Пример товара штаны -->
+                <div class="product-card" data-category="pants">
+                    <div class="product-image">
+                        <img src="Спортивные штаны.jpg" alt="Спортивные штаны">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Спортивные штаны</h3>
+                        <p class="product-description">Мягкие, эластичные, для активного отдыха</p>
+                        <div class="product-price">1490 ₽</div>
+                        <div class="product-actions">
+                            <button class="btn btn--primary" onclick="customizeProduct('pants')">
+                                <i class="fas fa-palette"></i> Кастомизировать
+                            </button>
+                            <button class="btn btn--outline" onclick="addToCartFromCatalog('pants1')">
+                                <i class="fas fa-shopping-cart"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Пример товара трусы -->
+                <div class="product-card" data-category="underwear">
+                    <div class="product-image">
+                        <img src="Хлопковые трусы.jpg" alt="Хлопковые трусы">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Хлопковые трусы</h3>
+                        <p class="product-description">Набор из 3-х штук, дышащий материал</p>
+                        <div class="product-price">490 ₽</div>
+                        <div class="product-actions">
+                            <button class="btn btn--primary" onclick="customizeProduct('underwear')">
+                                <i class="fas fa-palette"></i> Кастомизировать
+                            </button>
+                            <button class="btn btn--outline" onclick="addToCartFromCatalog('underwear1')">
+                                <i class="fas fa-shopping-cart"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Еще примеры товаров -->
+                <div class="product-card" data-category="tshirt">
+                    <div class="product-image">
+                        <img src="Черная футболка с принтом.jpeg" alt="Черная футболка">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Черная футболка с принтом</h3>
+                        <p class="product-description">С уникальным дизайном, ограниченная серия</p>
+                        <div class="product-price">1290 ₽</div>
+                        <div class="product-actions">
+                            <button class="btn btn--primary" onclick="customizeProduct('tshirt')">
+                                <i class="fas fa-palette"></i> Кастомизировать
+                            </button>
+                            <button class="btn btn--outline" onclick="addToCartFromCatalog('tshirt2')">
+                                <i class="fas fa-shopping-cart"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('loginModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Вход в аккаунт</h2>
+            <div class="auth-illustration">
+                <img src="https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?w=300&h=200&fit=crop" alt="Вход в аккаунт">
+            </div>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" name="password" placeholder="Введите пароль" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Войти</button>
+            </form>
+            <div class="auth-footer">
+                <p>Нет аккаунта? <a href="#" onclick="showRegisterModal()">Зарегистрироваться</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('registerModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Регистрация</h2>
+            <div class="auth-illustration">
+                <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=300&h=200&fit=crop" alt="Регистрация">
+            </div>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label>Имя и фамилия</label>
+                    <input type="text" name="name" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Телефон</label>
+                    <input type="tel" name="phone" placeholder="+7 (999) 999-99-99" required>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" name="password" placeholder="Создайте пароль" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Зарегистрироваться</button>
+            </form>
+            <div class="auth-footer">
+                <p>Уже есть аккаунт? <a href="#" onclick="showLoginModal()">Войти</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Modal -->
+    <div class="modal" id="verificationModal">
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('verificationModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Подтверждение email</h2>
+            <div class="verification-content">
+                <div class="verification-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="verification-illustration">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=250&h=150&fit=crop" alt="Подтверждение email">
+                </div>
+                <p>Мы отправили код подтверждения на ваш email</p>
+                <div class="verification-code">
+                    <input type="text" maxlength="1" class="code-input">
+                    <input type="text" maxlength="1" class="code-input">
+                    <input type="text" maxlength="1" class="code-input">
+                    <input type="text" maxlength="1" class="code-input">
+                    <input type="text" maxlength="1" class="code-input">
+                    <input type="text" maxlength="1" class="code-input">
+                </div>
+                <button class="btn btn--primary btn--full" onclick="verifyEmail()">Подтвердить</button>
+                <p class="resend-text">Не получили код? <a href="#" onclick="resendCode()">Отправить снова</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Корзина</h3>
+            <button class="cart-close" onclick="closeCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <!-- Cart items loaded by JavaScript -->
+            <!-- Пример товара в корзине -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=80&h=80&fit=crop" alt="Футболка">
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-title">Футболка белая</div>
+                    <div class="cart-item-meta">Размер: M, Цвет: Белый</div>
+                    <div class="cart-item-price">990 ₽</div>
+                </div>
+                <button class="cart-item-remove">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span class="total-price">0 ₽</span>
+            </div>
+            <button class="btn btn--primary btn--full" onclick="checkout()">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal__content checkout-modal">
+            <button class="modal__close" onclick="closeModal('checkoutModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 style="margin-bottom: 1rem; font-size: 1.3rem;">Оформление заказа</h2>
+            
+            <!-- Order Summary with images -->
+            <div class="order-summary">
+                <div class="summary-title">Ваш заказ</div>
+                <div class="summary-items" id="orderSummaryItems">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+                <div class="summary-total">
+                    <span>Итого:</span>
+                    <span id="orderSummaryTotal">0 ₽</span>
+                </div>
+            </div>
+
+            <form class="checkout-form" id="checkoutForm">
+                <!-- Step 1: Personal Information -->
+                <div class="checkout-step active" data-step="1">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i>Контактные данные</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Имя <span class="required">*</span></label>
+                                <input type="text" name="first_name" required 
+                                       placeholder="Ваше имя"
+                                       data-validate="name">
+                            </div>
+                            <div class="form-group">
+                                <label>Фамилия <span class="required">*</span></label>
+                                <input type="text" name="last_name" required 
+                                       placeholder="Ваша фамилия"
+                                       data-validate="name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email <span class="required">*</span></label>
+                                <input type="email" name="email" required 
+                                       placeholder="email@example.com"
+                                       data-validate="email">
+                            </div>
+                            <div class="form-group">
+                                <label>Телефон <span class="required">*</span></label>
+                                <input type="tel" name="phone" required 
+                                       placeholder="+7 (999) 999-99-99"
+                                       data-validate="phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="closeModal('checkoutModal')">
+                            Отмена
+                        </button>
+                        <button type="button" class="btn btn--primary" onclick="goToStep(2)">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Delivery Information -->
+                <div class="checkout-step" data-step="2">
+                    <div class="form-section">
+                        <h3><i class="fas fa-truck"></i>Доставка</h3>
+                        <div class="delivery-illustration">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=150&fit=crop" alt="Доставка">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Город <span class="required">*</span></label>
+                            <input type="text" name="city" required 
+                                   placeholder="Москва"
+                                   data-validate="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Адрес <span class="required">*</span></label>
+                            <textarea name="address" rows="2" required 
+                                      placeholder="ул. Примерная, д. 123, кв. 45"
+                                      data-validate="required"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-shipping-fast"></i>Способ доставки</h3>
+                        <div class="delivery-options">
+                            <label class="delivery-option selected">
+                                <input type="radio" name="delivery_method" value="courier" checked>
+                                <div class="delivery-image">
+                                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=80&h=80&fit=crop" alt="Курьер">
+                                </div>
+                                <div class="delivery-header">
+                                    <div class="delivery-title">Курьер</div>
+                                    <div class="delivery-price">300 ₽</div>
+                                </div>
+                                <div class="delivery-description">
+                                    До двери, 1-3 дня
+                                </div>
+                            </label>
+
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery_method" value="pickup">
+                                <div class="delivery-image">
+                                    <img src="https://images.unsplash.com/photo-1566576912351-58a5d5d29b6e?w=80&h=80&fit=crop" alt="Самовывоз">
+                                </div>
+                                <div class="delivery-header">
+                                    <div class="delivery-title">Самовывоз</div>
+                                    <div class="delivery-price">Бесплатно</div>
+                                </div>
+                                <div class="delivery-description">
+                                    Пункт выдачи, 2-4 дня
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="goToStep(1)">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button type="button" class="btn btn--primary" onclick="goToStep(3)">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Payment -->
+                <div class="checkout-step" data-step="3">
+                    <div class="form-section">
+                        <h3><i class="fas fa-credit-card"></i>Оплата</h3>
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment_method" value="card" checked>
+                                <div class="payment-content">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=60&h=60&fit=crop" alt="Банковская карта">
+                                    <div>
+                                        <div class="payment-title">Карта онлайн</div>
+                                        <div class="payment-description">Visa, MasterCard, Мир</div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-method">
+                                <input type="radio" name="payment_method" value="cash">
+                                <div class="payment-content">
+                                    <img src="https://images.unsplash.com/photo-1587270613304-4cc9a0c5b3ec?w=60&h=60&fit=crop" alt="Наличные">
+                                    <div>
+                                        <div class="payment-title">Наличные</div>
+                                        <div class="payment-description">При получении</div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Card Details -->
+                    <div class="form-section card-details" id="cardDetails">
+                        <h3><i class="fas fa-lock"></i>Данные карты</h3>
+                        <div class="form-group">
+                            <label>Номер карты <span class="required">*</span></label>
+                            <input type="text" name="card_number" 
+                                   placeholder="1234 5678 9012 3456"
+                                   data-validate="card_number"
+                                   maxlength="19">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Срок <span class="required">*</span></label>
+                                <input type="text" name="card_expiry" 
+                                       placeholder="ММ/ГГ"
+                                       data-validate="card_expiry"
+                                       maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>CVV <span class="required">*</span></label>
+                                <input type="text" name="card_cvv" 
+                                       placeholder="123"
+                                       data-validate="card_cvv"
+                                       maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="goToStep(2)">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button type="button" class="btn btn--primary" onclick="goToStep(4)">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Confirmation -->
+                <div class="checkout-step" data-step="4">
+                    <div class="form-section">
+                        <h3><i class="fas fa-clipboard-check"></i>Подтверждение</h3>
+                        
+                        <div class="confirmation-summary">
+                            <div id="orderConfirmationDetails">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+
+                            <div class="form-section" style="margin-bottom: 1rem;">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms" class="checkbox-label">
+                                        Согласен с <a href="#" target="_blank">условиями</a> <span class="required">*</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="goToStep(3)">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button type="submit" class="btn btn--primary" id="submitOrder">
+                            <i class="fas fa-check"></i>
+                            Заказать
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal__content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="success-illustration">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=200&fit=crop" alt="Успешный заказ">
+            </div>
+            <h2>Заказ оформлен!</h2>
+            <p>Ваш заказ №<span id="orderNumber">SC184729</span> успешно создан.</p>
+            <p>Мы свяжемся с вами для подтверждения заказа.</p>
+            <button class="btn btn--primary" onclick="closeModal('successModal')">Понятно</button>
+        </div>
+    </div>
+
+    <!-- Дополнительные изображения для карусели -->
+    <div class="gallery" style="display: none;">
+        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&h=600&fit=crop" alt="Модель в кастомной одежде 1">
+        <img src="https://images.unsplash.com/photo-1596908905631-7fe2d220d0f4?w=600&h=600&fit=crop" alt="Модель в кастомной одежде 2">
+        <img src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=600&h=600&fit=crop" alt="Модель в кастомной одежде 3">
+        <img src="https://images.unsplash.com/photo-1586363104868-2b8d6f8f46cc?w=600&h=600&fit=crop" alt="Модель в кастомной одежде 4">
+        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&h=600&fit=crop" alt="Модель в кастомной одежде 5">
+    </div>
+
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+    <script src="designer.js"></script>
+    <script src="cart.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>
